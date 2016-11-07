@@ -2,7 +2,7 @@
   <article>
     <header>
       <h2>
-        <a href="#">{{articleModel.title}}</a>
+        <router-link v-bind:to="{path: '/' + articleModel.time.year + '/' + articleModel.time.month + '/' + articleModel.name}">{{articleModel.title}}</router-link>
       </h2>
     </header>
     <div class="article-meta clearfix">
@@ -10,7 +10,7 @@
       <ul class="tags left"></ul>
       <ul class="tags right">
         <li v-for="(item,index) in articleModel.tags">
-          <router-link v-bind:to="{path:'/tag/'+item.tag}">{{item.tagName}}</router-link>
+          <router-link v-bind:to="{path:'/tag/'+item.tag + '/'}">{{item.tagName}}</router-link>
         </li>
       </ul>
     </div>

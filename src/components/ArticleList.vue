@@ -26,30 +26,27 @@ export default {
       list:[{name:1}],
       pageIndex:1,
       pageCount:1,
-      prefix:'/'
+      prefix:''
     };
   },
   mounted(){
-    console.log(this.$route.params);
+    //console.log(this.$route.params);
     this.getArticleList();
   },
   methods:{
     getArticleList(){
       var self = this;
-      axios.get('http://blog_api.nullcn.com').then(function(result){
-        console.log(result.data);
-        console.log(self.list);
+      axios.get('http://blog_api.nullcn.com/tag/javascript').then(function(result){
         self.list = result.data.list;
         self.pageIndex = result.data.pagination.pageIndex;
         self.pageCount = result.data.pagination.pageCount;
-        console.log(self.list);
+        self.prefix = result.data.pagination.prefix||'';
       });
     }
   },
   components: {Acticel,Pagination},
   render(createElement){
     console.log('render');
-    //console.log(this.list)
     return createElement(
       'div',
       'aaa',
