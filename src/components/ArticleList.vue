@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Acticel
+    <Acticle_
       v-for="(item,index) in list"
       v-bind:articleModel="item"
       v-bind:index="index">
-    </Acticel>
+    </Acticle_>
     <Pagination
       onChange={this.onChange}
       v-bind:pageIndex="pageIndex"
@@ -17,7 +17,8 @@
 
 <script>
 import axios from 'axios';
-import Acticel from './Articel';
+import config from '../../serviceConfig.json';
+import Acticle_ from './Article';
 import Pagination from './Pagination';
 
 export default {
@@ -33,10 +34,32 @@ export default {
     //console.log(this.$route.params);
     this.getArticleList();
   },
-  methods:{
-    getArticleList(){
-      var self = this;
-      axios.get('http://blog_api.nullcn.com/tag/javascript').then(function(result){
+  watch:{
+    '$route':function(to,from){
+      let self = this;
+      let url = config.serviceUrl;
+      let queryType = to.meta.queryType;
+      switch(queryType){
+        case '/':
+          if(to.params.pageIndex){
+            url = url + '/page/' + to.params.pageIndex + '/';
+          }
+        break;
+        case 'tag':
+          let keyword = to.params.tag;
+          url = url + '/tag/' + keyword + '/';
+          if(to.params.pageIndex){
+            url = url + 'page/' + to.params.pageIndex + '/';
+          }
+        break;
+        case 'archive':
+          url = url + '/' + to.params.year + '/' + to.params.month + '/';
+          if(to.params.pageIndex){
+            url = url + 'page/' + to.params.pageIndex + '/';
+          }
+        break;
+      }
+      axios.get(url).then(function(result){
         self.list = result.data.list;
         self.pageIndex = result.data.pagination.pageIndex;
         self.pageCount = result.data.pagination.pageCount;
@@ -44,8 +67,41 @@ export default {
       });
     }
   },
-  components: {Acticel,Pagination},
-  render(createElement){
+  methods:{
+    getArticleList(){
+      let self = this;
+      let url = config.serviceUrl;
+      let queryType = self.$route.meta.queryType;
+      switch(queryType){
+        case '/':
+          if(self.$route.params.pageIndex){
+            url = url + '/page/' + self.$route.params.pageIndex + '/';
+          }
+        break;
+        case 'tag':
+          let keyword = self.$route.params.tag;
+          url = url + '/tag/' + keyword + '/';
+          if(self.$route.params.pageIndex){
+            url = url + 'page/' + self.$route.params.pageIndex + '/';
+          }
+        break;
+        case 'archive':
+          url = url + '/' + self.$route.params.year + '/' + self.$route.params.month + '/';
+          if(self.$route.params.pageIndex){
+            url = url + 'page/' + self.$route.params.pageIndex + '/';
+          }
+        break;
+      }
+      axios.get(url).then(function(result){
+        self.list = result.data.list;
+        self.pageIndex = result.data.pagination.pageIndex;
+        self.pageCount = result.data.pagination.pageCount;
+        self.prefix = result.data.pagination.prefix||'';
+      });
+    }
+  },
+  components: {Acticle_,Pagination},
+  /*render(createElement){
     console.log('render');
     return createElement(
       'div',
@@ -55,7 +111,7 @@ export default {
         createElement(Acticel)
       ]
     );
-  }
+  }*/
 }
 </script>
 

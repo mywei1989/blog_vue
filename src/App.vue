@@ -15,6 +15,9 @@
         </div>
         <div class="block-sidebar column one-fourth">
           <Information></Information>
+          <TagList></TagList>
+          <ArchiveList></ArchiveList>
+          <Copyright></Copyright>
         </div>
       </div>
     </div>
@@ -22,19 +25,27 @@
 </template>
 
 <script>
-import Information from './components/Information'
-import Navigation from './components/Navigation'
+import Information from './components/Information';
+import Navigation from './components/Navigation';
+import TagList from './components/TagList';
+import ArchiveList from './components/ArchiveList';
+import Copyright from './components/Copyright';
 
 export default {
   name: 'app',
   components: {
     Navigation,
-    Information
+    Information,
+    TagList,
+    ArchiveList,
+    Copyright
   }
 }
 </script>
 
 <style>
+@import './assets/css/normalize.css';
+@import './assets/css/sunburst.css';
 *{
   box-sizing: border-box
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="navigation clearfix">
     <nav class="menus-main left">
-      <a href="/" class="favicon">
-        <img src="../assets/favicon.png" alt="null在吹牛逼" title="null在吹牛逼" />
-      </a>
+      <router-link to="/" class="favicon">
+        <img src="../assets/images/favicon.png" alt="null在吹牛逼" title="null在吹牛逼" />
+      </router-link>
       <router-link to="/about">关于</router-link>
       <router-link to="/profile">简历</router-link>
       <router-link to="/links">链接</router-link>
@@ -13,10 +13,10 @@
     </nav>
     <nav class="menus-right right">
       <a target="_blank" href="http://git.oschina.net/mywei1989" class="favicon">
-        <img src="../assets/gitosc.png" alt="myGitosc" title="myGitosc" />
+        <img src="../assets/images/gitosc.png" alt="myGitosc" title="myGitosc" />
       </a>
       <a target="_blank" href="https://github.com/mywei1989" class="favicon">
-        <img src="../assets/github.png" alt="myGithub" title="myGithub" />
+        <img src="../assets/images/github.png" alt="myGithub" title="myGithub" />
       </a>
     </nav>
   </div>
