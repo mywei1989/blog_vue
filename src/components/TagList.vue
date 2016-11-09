@@ -20,9 +20,9 @@ export default {
   },
   mounted(){
     let self = this;
-    /*axios.get(config.serviceUrl+'/getAllTag').then(function(result){
+    axios.get(config.serviceUrl+'/getAllTag').then(function(result){
       self.tagList = result.data;
-    });*/
+    });
   }
 }
 </script>

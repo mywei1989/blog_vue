@@ -21,9 +21,9 @@ export default {
   },
   mounted(){
     let self = this;
-    /*axios.get(config.serviceUrl+'/getArchive').then(function(result){
+    axios.get(config.serviceUrl+'/getArchive').then(function(result){
       self.archiveList = result.data;
-    });*/
+    });
   }
 }
 </script>
