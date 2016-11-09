@@ -1,6 +1,6 @@
 # blog_vue
 
-> my blog build with vue2.x
+> my blog build with vue2.x  
 [blog_vue](http://vue2.nullcn.com)  
 
 ## Build Setup
