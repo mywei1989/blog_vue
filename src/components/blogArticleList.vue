@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Acticle_
+    <blogArticle
       v-for="(item,index) in list"
       v-bind:articleModel="item"
       v-bind:index="index">
-    </Acticle_>
-    <Pagination
+    </blogArticle>
+    <blogPagination
       onChange={this.onChange}
       v-bind:pageIndex="pageIndex"
       v-bind:pageCount="pageCount"
       v-bind:prefix="prefix">
-    </Pagination>
+    </blogPagination>
   </div>
 
 </template>
@@ -18,8 +18,8 @@
 <script>
 import axios from 'axios';
 import config from '../../serviceConfig.json';
-import Acticle_ from './Article';
-import Pagination from './Pagination';
+import blogArticle from './blogArticle';
+import blogPagination from './blogPagination';
 
 export default {
   data(){
@@ -100,7 +100,7 @@ export default {
       });
     }
   },
-  components: {Acticle_,Pagination},
+  components: {blogArticle,blogPagination},
   /*render(createElement){
     console.log('render');
     return createElement(

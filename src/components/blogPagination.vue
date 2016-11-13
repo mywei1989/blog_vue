@@ -46,9 +46,7 @@ export default {
       pageList.push(createElement('router-link',{class:'extend next',attrs:{to:this.prefix + '/page/' + (this.pageIndex + 1) + '/'},domProps:{innerHTML:'»'}}));
     }
     return createElement(
-      'div',{class:'archive-pagination'},[
-        createElement('div',{class:'paginator'},pageList)
-      ]
+      'nav',{class:'pagination'},pageList
     );
   }
 }

@@ -1,19 +1,21 @@
-import ArticleList from '../components/ArticleList';
-import Article from '../components/Article';
+import blogArticleList from '../components/blogArticleList';
+import blogArticle from '../components/blogArticle';
+import blogTagList from '../components/blogTagList';
 
 const routes = [
-  {path: '/', name: 'ArticleList',component: ArticleList,meta:{queryType:'/'}},
-  {path: '/page/:pageIndex', name: 'ArticleList',component: ArticleList,meta:{queryType:'/'}},
-  {path: '/tag/:tag', name: 'ArticleList',component: ArticleList,meta:{queryType:'tag'}},
-  {path: '/tag/:tag/', name: 'ArticleList',component: ArticleList,meta:{queryType:'tag'}},
-  {path: '/tag/:tag/page/pageIndex', name: 'ArticleList',component: ArticleList,meta:{queryType:'tag'}},
-  {path: '/tag/:tag/page/pageIndex/', name: 'ArticleList',component: ArticleList,meta:{queryType:'tag'}},
-  {path: '/:year/:month', name: 'ArticleList',component: ArticleList,meta:{queryType:'archive'}},
-  {path: '/:year/:month/', name: 'ArticleList',component: ArticleList,meta:{queryType:'archive'}},
-  {path: '/:year/:month/page/:pageIndex', name: 'ArticleList',component: ArticleList,meta:{queryType:'archive'}},
-  {path: '/:year/:month/page/:pageIndex/', name: 'ArticleList',component: ArticleList,meta:{queryType:'archive'}},
-  {path: '/:year/:month/:name', name: 'Article',component: Article,meta:{queryType:'article'}},
-  {path: '/:info', name: 'Article',component: Article,meta:{queryType:'info'}}
+  {path: '/', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'/'}},
+  {path: '/page/:pageIndex', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'/'}},
+  {path: '/tag/:tag', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'tag'}},
+  {path: '/tag/:tag/', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'tag'}},
+  {path: '/tag/:tag/page/pageIndex', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'tag'}},
+  {path: '/tag/:tag/page/pageIndex/', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'tag'}},
+  {path: '/:year/:month', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'archive'}},
+  {path: '/:year/:month/', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'archive'}},
+  {path: '/:year/:month/page/:pageIndex', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'archive'}},
+  {path: '/:year/:month/page/:pageIndex/', name: 'blogArticleList',component: blogArticleList,meta:{queryType:'archive'}},
+  {path: '/:year/:month/:name', name: 'blogArticle',component: blogArticle,meta:{queryType:'article'}},
+  {path: '/tags', name: 'blogTagList',component: blogTagList},
+  {path: '/:info', name: 'blogArticle',component: blogArticle,meta:{queryType:'info'}}
 ].map(route => {
   route.path = route.path;
   return route
